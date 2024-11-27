@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>密码找回</title>
+</head>
+<body>
+    <h1>密码问题</h1>
+    <ul>
+        {% for question_item in question %}
+        <li>{{ question_item.question }} </li>
+        {% empty %}
+        <li>No qustions available.</li>
+        {% endfor %}
+    </ul>
+    <!-- 密码输入框 -->
+<form method="post" action="{% url 'submit_data_userid' %}">
+  {% csrf_token %}
+  <input type="text" name="my_input_userid">
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

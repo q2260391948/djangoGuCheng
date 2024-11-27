@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <h1>真粗心，忘了密码吧？快通过问题找回密码吧！</h1>
+    <form method="post" action="{% url 'submit_data_userid' %}">
+      {% csrf_token %}
+     用户名： <input type="text" name="my_input_userid">
+      <button type="submit">提交</button>
+    </form>
+    <ul>
+        <li>{{ my_input_userid }} </li>
+         <li>{{ nick_name }} </li>
+        <li>{{ question }} </li>
+    </ul>
+     <form method="post" action="{% url 'submit_data3' %}">
+     回答： <input type="text" name="answer">
+     用户名：<input type="text" name="user_id" value={{ my_input_userid }}>
+      <button type="submit">提交</button>
+     </form>
+</body>
+</html>
